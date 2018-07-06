@@ -1,0 +1,20 @@
+{
+    "name": "EMS-Extension",
+    "description" : "Chrome-extension for Easy-Mediasoup users.",
+    "version": "0.1",
+    "manifest_version": 2,
+    "permissions": [
+      "desktopCapture",
+      "storage",
+    	"tabs",
+      "<all_urls>",
+      "activeTab" ],
+    "content_scripts" : [{
+      "matches" : [ "http://127.0.0.1:8080/*"],
+      "js" : ["inject.js"]
+    }],
+    "background": {
+      "scripts": ["background.js"]
+    },
+    "web_accessible_resources": ["script.js"]
+}
