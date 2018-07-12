@@ -1,4 +1,4 @@
-console.log("Script is injected!");
+// console.log("Script is injected!");
 
 var userMedia;
 
@@ -9,22 +9,22 @@ function getScreenShare(){
 
 	return navigator.webkitGetUserMedia({
 		audio: false,
-        video: {
-            mandatory: {
-	          	chromeMediaSource: 'desktop',
-	          	chromeMediaSourceId: 'irrelevant',
-	        	maxWidth: 1280,
-	           	maxHeight: 720,
-          	},
-          	optional: []
-       	}
+    video: {
+      mandatory: {
+      	chromeMediaSource: 'desktop',
+      	chromeMediaSourceId: 'irrelevant',
+    	  maxWidth: 1280,
+       	maxHeight: 720,
+    	},
+    	optional: []
+   	}
 	});
 }
 
 function getAspectRatio(w, h) {
-    function gcd (a, b) {
-        return (b == 0) ? a : gcd (b, a%b);
-    }
-    var r = gcd (w, h);
-    return (w/r) / (h/r);
+  function gcd (a, b) {
+    return (b == 0) ? a : gcd (b, a%b);
+  }
+  var r = gcd (w, h);
+  return (w/r) / (h/r);
 }

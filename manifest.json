@@ -1,7 +1,7 @@
 {
-    "name": "TrainingSpace Buddy",
+    "name": "TrainingSpace Screensharing",
     "description" : "Расширение для тренеров TrainingSpace.",
-    "version": "0.1",
+    "version": "0.2",
     "manifest_version": 2,
     "permissions": [
       "desktopCapture",
