@@ -1,6 +1,6 @@
 {
-    "name": "EMS-Extension",
-    "description" : "Chrome-extension for Easy-Mediasoup users.",
+    "name": "TrainingSpace Buddy",
+    "description" : "Расширение для тренеров TrainingSpace.",
     "version": "0.1",
     "manifest_version": 2,
     "permissions": [
@@ -10,7 +10,14 @@
       "<all_urls>",
       "activeTab" ],
     "content_scripts" : [{
-      "matches" : [ "http://127.0.0.1:8080/*"],
+      "matches" : [
+        "http://127.0.0.1:8080/*",
+        "http://localhost:8080/*",
+        "http://localhost:4444/app/room/*",
+        "http://127.0.0.1:4444/app/room/*",
+        "https://trainingspace.oblakogroup.ru/app/room/*",
+        "https://trainingspace.online/app/room/*"
+      ],
       "js" : ["inject.js"]
     }],
     "background": {

@@ -1,11 +1,3 @@
-/*var s = document.createElement('script');
-// TODO: add "script.js" to web_accessible_resources in manifest.json
-s.src = chrome.extension.getURL('script.js');
-s.onload = function() {
-    this.remove();
-};
-(document.head || document.documentElement).appendChild(s);*/
-
 var port = chrome.runtime.connect(chrome.runtime.id);
 
 port.onMessage.addListener(function(msg) {
@@ -13,13 +5,19 @@ port.onMessage.addListener(function(msg) {
 });
 
 window.addEventListener('message', function(event) {
+  // console.log('inject.js: ', event.data);
 	// We only accept messages from ourselves
-	if (event.source != window) return;
+	if (event.source != window || !event.data.type) return;
 
-	if (event.data.type && ((event.data.type === 'SS_UI_REQUEST') ||
-							(event.data.type === 'SS_UI_CANCEL'))) {
-		port.postMessage(event.data);
-	}
+  switch(event.data.type){
+    case 'WINDOW_READY':
+      // console.log('inject');
+      window.postMessage({ type: 'SS_PING', text: 'start' }, '*');
+      break;
+    case 'SS_UI_REQUEST':
+    case 'SS_UI_CANCEL':
+      port.postMessage(event.data);
+      break;
+  }
 }, false);
 
-window.postMessage({ type: 'SS_PING', text: 'start' }, '*');

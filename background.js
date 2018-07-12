@@ -32,6 +32,7 @@ function requestScreenSharing(port, msg) {
 
 function cancelScreenSharing(msg) {
   if (desktopMediaRequestId) {
-     chrome.desktopCapture.cancelChooseDesktopMedia(desktopMediaRequestId);
+    chrome.desktopCapture.cancelChooseDesktopMedia(desktopMediaRequestId);
   }
-}s
+}
+
