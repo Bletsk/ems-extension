@@ -1,6 +1,6 @@
 {
-    "name": "TrainingSpace Screensharing",
-    "description" : "Расширение для тренеров TrainingSpace.",
+    "name": "TrainingSpace - Трансляция экрана",
+    "description" : "Расширение для трансляции экрана преподавателя на платформе TrainingSpace.",
     "version": "0.2",
     "manifest_version": 2,
     "permissions": [
@@ -22,6 +22,11 @@
     }],
     "background": {
       "scripts": ["background.js"]
+    },
+    "icons": {
+      "16": "assets/images/Icon-16.png",
+      "48": "assets/images/Icon-48.png",
+      "128": "assets/images/Icon-128.png"
     },
     "web_accessible_resources": ["script.js"]
 }
