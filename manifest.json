@@ -1,7 +1,7 @@
 {
     "name": "TrainingSpace - Трансляция экрана",
     "description" : "Расширение для трансляции экрана преподавателя на платформе TrainingSpace.",
-    "version": "0.2",
+    "version": "1.1",
     "manifest_version": 2,
     "permissions": [
       "desktopCapture",

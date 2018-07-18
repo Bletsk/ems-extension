@@ -2,6 +2,8 @@ var data_sources = ['screen', 'window', 'tab'],
     desktopMediaRequestId = '';
 
 chrome.runtime.onConnect.addListener(function(port) {
+  // reloadTrainingTabs();
+
   port.onMessage.addListener(function (msg) {
     if(msg.type === 'SS_UI_REQUEST') {
       requestScreenSharing(port, msg);
@@ -11,6 +13,12 @@ chrome.runtime.onConnect.addListener(function(port) {
       cancelScreenSharing(msg);
     }
   });
+});
+
+
+
+chrome.runtime.onInstalled.addListener(function() {
+  reloadTrainingTabs();
 });
 
 function requestScreenSharing(port, msg) {
@@ -34,5 +42,20 @@ function cancelScreenSharing(msg) {
   if (desktopMediaRequestId) {
     chrome.desktopCapture.cancelChooseDesktopMedia(desktopMediaRequestId);
   }
+}
+
+function reloadTrainingTabs(){
+  chrome.tabs.query({url: "http://localhost:4444/app/room/*"}, function(tab) {
+    chrome.tabs.reload(tab[0].id) 
+  });
+  chrome.tabs.query({url: "http://127.0.0.1:4444/app/room/*"}, function(tab) {
+    chrome.tabs.reload(tab[0].id) 
+  });
+  chrome.tabs.query({url: "https://trainingspace.oblakogroup.ru/app/room/*"}, function(tab) {
+    chrome.tabs.reload(tab[0].id) 
+  });
+  chrome.tabs.query({url: "https://trainingspace.online/app/room/*"}, function(tab) {
+    chrome.tabs.reload(tab[0].id) 
+  });
 }
 
