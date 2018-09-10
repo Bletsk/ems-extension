@@ -9,16 +9,16 @@
     	"tabs",
       "*://trainings.trainingspace.online/app/*",
       "*://beta3.trainingspace.online/training/*",
-      "*://*:8080/*",
-      "*://*:4444/*",
+      "http://localhost:8080/*",
+      "http://localhost:4444/*",
       "*://*.tscms.oblakogroup.ru/*",
       "*://trainingspace.oblakogroup.ru/*",
       "activeTab" ],
     "content_scripts" : [{
       "matches" : [
         "*://*.trainingspace.online/*",
-        "*://*:8080/*",
-        "*://*:4444/*",
+        "http://localhost:8080/*",
+        "http://localhost:4444/*",
         "*://*.tscms.oblakogroup.ru/*",
         "*://trainingspace.oblakogroup.ru/*"
       ],
